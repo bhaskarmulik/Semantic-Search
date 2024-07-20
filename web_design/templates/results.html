@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adidas Semantic Search Results</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;700;900">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-gray-900">Adidas Semantic Search</h1>
+            <div class="flex items-center">
+                <input type="text" id="search-input" placeholder="Search products" class="px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button id="search-button" class="bg-blue-500 text-white px-6 py-2 rounded-r-md hover:bg-blue-600 transition-colors duration-300">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <h2 class="text-2xl font-semibold mb-6">Search Results</h2>
+        <div id="results-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- I also want a text box to show to natural language answer of te LLM to the search query -->
+            <!-- Results will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <script>
+        // Sample JSON response (replace this with your actual API call)
+        
+        const sampleResponse = {
+            products: [
+                {
+                    id: 1,
+                    name: "Ultraboost 21",
+                    description: "Experience unparalleled comfort and energy return with these running shoes.",
+                    price: 180,
+                    image: "https://example.com/ultraboost-21.jpg",
+                    color : "Black",
+                    category : "Shoes"
+                },
+                {
+                    id: 2,
+                    name: "Trefoil Hoodie",
+                    description: "Stay warm and stylish with this classic Adidas hoodie featuring the iconic Trefoil logo.",
+                    price: 65,
+                    image: "https://example.com/trefoil-hoodie.jpg",
+                    color : "Black",
+                    category : "Clothing"
+                },
+                // Add more products as needed
+            ]
+        };
+
+        function displayResults(data) {
+            const container = document.getElementById('results-container');
+            container.innerHTML = ''; // Clear previous results
+
+            data.products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'bg-white rounded-lg shadow-md overflow-hidden';
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">${product.name}</h3>
+                        <p class="text-gray-600 mb-4">${product.category} / ${product.color}</p>
+                        <p class="text-gray-600 mb-4">${product.description}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold">$${product.price}</span>
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-300">Add to Cart</button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(productCard);
+            });
+        }
+
+        fetch('http://127.0.0.1:5000/results/data')
+        .then(response => response.json()) // This line is necessary to parse the JSON response
+        .then(data => {
+            // Process the response data here
+            console.log(data);
+            displayResults(data);
+        })
+        .catch(error => {
+            // Handle errors here
+            console.error(error);
+        });
+
+        // // Simulating a search request (replace this with your actual API call)
+        //     document.getElementById('search-button').addEventListener('click', () => {
+        //     const searchQuery = document.getElementById('search-input').value;
+        //     console.log('Searching for:', searchQuery);
+        //     // Here you would normally make an API call with the search query
+        //     // For now, we'll just use the sample response
+        //     displayResults(sampleResponse);
+        // });
+
+        // Initial display of results
+        // displayResults(data);
+    </script>
+</body>
+</html>

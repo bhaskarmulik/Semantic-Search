@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adidas Semantic Search</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="stylesheet" href="./../static/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;700;900">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white min-h-screen flex flex-col overflow-x-hidden">
+    <header class="flex items-center justify-between border-b border-[#f0f2f4] px-10 py-3">
+        <div class="flex items-center gap-4 text-[#111517]">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="https://www.svgrepo.com/show/315543/adidas.svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor"/>
+            </svg>
+            <h2 class="text-[#111517] text-lg font-bold leading-tight tracking-[-0.015em]">Adidas Semantic Search</h2>
+        </div>
+        <nav class="flex items-center gap-8">
+            <a href="#" class="text-[#111517] text-sm font-medium">Home</a>
+            <a href="#" class="text-[#111517] text-sm font-medium">About</a>
+            <a href="#" class="text-[#111517] text-sm font-medium">Contact</a>
+        </nav>
+    </header>
+
+    <main class="flex-grow flex flex-col items-center justify-center px-4 py-12">
+      <div class="max-w-4xl w-full">
+          <div class="text-center mb-12 fade-in">
+              <h1 class="text-5xl font-black mb-6 tracking-tight text-[#111517]">Find what you're looking for, fast</h1>
+          </div>
+    
+
+
+
+          <!-- This is the code block for text+image search -->
+
+          <!-- <body class="bg-gray-100">
+
+            <div class="flex justify-center fade-in mb-8">
+                <div class="flex w-full max-w-2xl rounded-lg shadow-lg bg-white p-6">
+                    <div class="w-full">
+                        <div class="mb-4">
+                            <h2 class="text-xl font-bold text-center text-gray-700">Search</h2>
+                        </div>
+                        <form id="searchForm" class="space-y-4">
+                            <div class="form-group">
+                                <label for="searchText" class="block text-sm font-medium text-gray-700">Search Text</label>
+                                <input method="POST" type="text" id="searchText" class="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter text to search">
+                            </div>
+                            <div class="form-group">
+                                <label for="searchImage" class="block text-sm font-medium text-gray-700">Search Image</label>
+                                <input type="file" id="searchImage" class="form-control-file mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" accept="image/*">
+                            </div>
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 w-full">
+                                Search
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+
+            <!-- This is the code block for just the text search -->
+                
+        <div class="flex justify-center fade-in mb-8">
+             <div class="flex w-full max-w-2xl">
+             <input type="text" placeholder="Search" class="flex-grow px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id = 'query' name = 'query'>
+            <!-- <input type="file" accept="image/*" id="image-upload"> -->
+            <button onclick="getTextInput()" class="bg-[#1f89e0] text-white px-6 py-2 rounded-r-lg hover:bg-[#1a75c2] transition-colors duration-300">
+            Search
+            </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Why Sematic Search and the rest of the body -->
+  
+      <div class="max-w-4xl w-full mt-16 fade-in">
+          <h2 class="text-2xl font-bold mb-8">Why Semantic Search?</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div class="flex flex-col items-center text-center">
+                  <svg class="w-12 h-12 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                  <h3 class="text-lg font-semibold mb-2">Relevant results</h3>
+                  <p class="text-sm text-gray-600">We prioritize the most relevant results, so you can find what you're looking for, faster.</p>
+              </div>
+              <div class="flex flex-col items-center text-center">
+                  <svg class="w-12 h-12 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                  <h3 class="text-lg font-semibold mb-2">Find exactly what you want</h3>
+                  <p class="text-sm text-gray-600">Search for products by price, brand, rating, and more to find exactly what you want.</p>
+              </div>
+              <div class="flex flex-col items-center text-center">
+                  <svg class="w-12 h-12 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  <h3 class="text-lg font-semibold mb-2">Fast delivery</h3>
+                  <p class="text-sm text-gray-600">Get your products delivered quickly, so you can start enjoying them right away.</p>
+              </div>
+          </div>
+      </div>
+  </main>
+    <div class="px-40 py-12 bg-[#f0f2f4]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center fade-in">Featured Products</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+
+                
+                <div class="fade-in">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-64 bg-cover bg-center" style="background-image: url('./../static/images/5.jpg');"></div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">Five Ten Hiangle Pro Competition Climbing Shoes</h3>
+                            <p class="text-[#647787]">The Hiangle Pro takes on the classic shape of the original Hiangle with the addition of a seamless outsole wrapping around the toes, allowing for maximum rubber contact when tackling the most challenging boulder problems.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-64 bg-cover bg-center" style="background-image: url('./../static/images/9.jpg');"></div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">Tiro 21 Windbreaker</h3>
+                            <p class="text-[#647787]">You can't always be a force of nature in soccer training. So when the intensity drops and the winds pick up, this juniors' adidas Tiro 21 Windbreaker has you covered. Moisture-absorbing AEROREADY and a mesh lining keep you dry. The streamlined silhouette ensures nothing gets in the way of your ball skills on the touchline.This product is made with recycled content as part of our ambition to end plastic waste.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-64 bg-cover bg-center" style="background-image: url('./../static/images/12.jpg');"></div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">Inter Miami CF Home Authentic Jersey</h3>
+                            <p class="text-[#647787]">The future's a blank canvas. When Inter Miami CF step out in front of the home crowd, they'll wear a white uniform that shines under the Florida sun. This adidas soccer jersey is a juniors' version of their official home shirt. It keeps you dry on the training ground, though it's clean enough to wear on the street. The lightweight fabric displays embossed herons and sunset-pink details.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-64 bg-cover bg-center" style="background-image: url('./../static/images/403.jpg');"></div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">Adicolor Branded Webbing Waist Bag</h3>
+                            <p class="text-[#647787]">"For those days when a backpack is just too much, reach for this adidas waist bag instead. Designed with the right amount of space for a day of exploring, it has a double-pocket design that lets you carry all your small essentials. Stay organized in fresh adidas style. The contrast logos make sure of it.
+ 
+                                This product is made with Primegreen, a series of high-performance recycled materials."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- New About Us and Contact Us sections -->
+    <div class="bg-white py-16">
+      <div class="max-w-6xl mx-auto px-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div class="fade-in">
+                  <h2 class="text-3xl font-bold mb-6 text-[#111517]">About Us</h2>
+                  <p class="text-[#647787] mb-4">
+                      Adidas was founded by Adolf "Adi" Dassler, who made his first shoes in his mother's wash kitchen in Herzogenaurach, Germany after his return from World War I. In 1924, his brother Rudolf joined the business which became Gebrüder Dassler Schuhfabrik (Dassler Brothers Shoe Factory).
+                  </p>
+                  <p class="text-[#647787] mb-4">
+                      The brothers split up in 1948 due to a rift between them, with Rudolf forming a new firm that he called Ruda – from Rudolf Dassler, later rebranded Puma, while Adi formed a company formally registered as Adidas AG on 18 August 1949.
+                  </p>
+                  <p class="text-[#647787]">
+                      Adidas' logo is three stripes, which is used on the company's clothing and shoe designs as a marketing aid. The branding, which Adidas bought in 1952 from Finnish sports company Karhu Sports for two bottles of whiskey and the equivalent of 1600 euros, became so successful that Dassler described Adidas as "The three stripes company".
+                  </p>
+              </div>
+              <div class="fade-in">
+                  <h2 class="text-3xl font-bold mb-6 text-[#111517]">Contact Us</h2>
+                  <p class="text-[#647787] mb-4">
+                      We're always here to help. If you have any questions, concerns, or feedback, please don't hesitate to reach out to us.
+                  </p>
+                  <div class="mb-4">
+                      <h3 class="text-xl font-semibold mb-2 text-[#111517]">Customer Service</h3>
+                      <p class="text-[#647787]">Phone: +1 (800) 982-9337</p>
+                      <p class="text-[#647787]">Email: customer.service@adidas.com</p>
+                  </div>
+                  <div>
+                      <h3 class="text-xl font-semibold mb-2 text-[#111517]">Headquarters</h3>
+                      <p class="text-[#647787]">Adidas AG</p>
+                      <p class="text-[#647787]">Adi-Dassler-Strasse 1</p>
+                      <p class="text-[#647787]">91074 Herzogenaurach</p>
+                      <p class="text-[#647787]">Germany</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <footer class="bg-[#111517] text-white py-8">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+          <p>&copy; 2024 Adidas Semantic Search. All rights reserved.</p>
+      </div>
+  </footer>
+    <script src="./../static/myscripts.js"></script>
+</body>
+</html>
