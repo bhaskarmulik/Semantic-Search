@@ -2,7 +2,7 @@
 
 This is a Sematic Search Engine made for an e-commerce website (like Addidas) that allows users to input texts in a natural language and it outputs recommendations according to the prompts of the user.
 
-The dataset for the project has been obtained on [Adidas US retail products dataset - dataset by crawlfeeds | data.world](https://data.world/crawlfeeds/adidas-us-retail-products-dataset). The dataset consists of 850 rows of products sold by Addidas retail and their descriptions, category fit and gener specificity. 
+The dataset for the project has been obtained on [Adidas US retail products dataset - dataset by crawlfeeds | data.world](https://data.world/crawlfeeds/adidas-us-retail-products-dataset). The dataset consists of 850 rows of products sold by Addidas retail and their descriptions, category fit and gener specificity.
 
 ## Prerequisites
 
@@ -27,7 +27,10 @@ To use and recreate the repository:
 
 1. Clone the repository using `git clone` and navigate into the repository `web_design`
 2. Once the repository is cloned onto the local machine, download models for the textual and image processing and generating embeddings. For this, I have used the **clip** model to generate image embeddings and the **multi-qa-mpnet-base-dot-v1** to generate the textual embeddings. I have obtained the aforementioned models on HuggingFace. Once obtained, replace the folders of the models with those obtined to downloading said models in the `webdesign/utils`
-3. Now, simply run `python -m app`
+3. Make the environment variables file `.env` to store the necessary environemnt variables
+4. The files and the script for upserting the image and text embeddings is provided as numpy array objects.
+5. Update the paths in the files according to individual specifications.
+6. Run `python -m app`
 
 ## Working of the project
 
