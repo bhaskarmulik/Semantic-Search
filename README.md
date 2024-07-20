@@ -1,8 +1,8 @@
 # Semantic-Search-Engine
 
-This is a Sematic Search Engine made for an e-commerce website (like Addidas) that allows users to input texts in a natural language and it outputs recommendations according to the prompts of the user. 
+This is a Sematic Search Engine made for an e-commerce website (like Addidas) that allows users to input texts in a natural language and it outputs recommendations according to the prompts of the user.
 
-The dataset for the project has been obtained on [Adidas US retail products dataset - dataset by crawlfeeds | data.world](https://data.world/crawlfeeds/adidas-us-retail-products-dataset). The dataset consists of 850 rows of products sold by Addidas retail and their descriptions, category fit and gener specificity.
+The dataset for the project has been obtained on [Adidas US retail products dataset - dataset by crawlfeeds | data.world](https://data.world/crawlfeeds/adidas-us-retail-products-dataset). The dataset consists of 850 rows of products sold by Addidas retail and their descriptions, category fit and gener specificity. 
 
 ## Prerequisites
 
@@ -11,11 +11,11 @@ The dataset for the project has been obtained on [Adidas US retail products data
 3. `pinecone`
 4. `langchain`
 
-The other requirements are specified in the requirements.txt file.
+The other requirements are specified in the requirements.txt file. The environment variables, like those for interfacing with the Pinecone and Groq as well as the secret key for the session state of flask are stored in the `.env` file at the same level as the `./web_design` folder.
 
 ## Overview of the project
 
-The working of the project is explained as follows : 
+The working of the project is explained as follows :
 
 1. The user inputs the text data. (Image functionlity to be added later)
 2. This query is then passed through an LLM that then recommends products that are generally suited for the user query
@@ -31,7 +31,7 @@ To use and recreate the repository:
 
 ## Working of the project
 
-The flow of the project is divided into two parts : 
+The flow of the project is divided into two parts :
 
 #### Data Ingestion
 
@@ -49,7 +49,7 @@ This stage involved:
 
 #### Inference
 
-This stage involves actually making a working full-stack website. This stage involved : 
+This stage involves actually making a working full-stack website. This stage involved :
 
 1. Front-end :
    1. Involved making a User-friendly UI for input textual and image queries
